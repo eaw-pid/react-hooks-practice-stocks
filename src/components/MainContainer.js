@@ -28,8 +28,18 @@ function handleDelete(deletedStock) {
 }
 
   const sortedStocks = [...stocks].sort((a, b) => {
+       const nameA = a.name.toUpperCase();
+      const nameB = b.name.toUpperCase();
     if (sortBy === "Alphabetically") {
-      return a.name.localeCompare(b.name)
+   
+      if (nameA < nameB) {
+        return -1
+      }
+      if (nameA > nameB) {
+        return 1
+      }
+      return 0
+      
     } else {
       return a.price - b.price
     }
@@ -60,13 +70,5 @@ function handleDelete(deletedStock) {
   }
 export default MainContainer;
 
-// const nameA = a.name.toUpperCase();
-      // const nameB = b.name.toUpperCase();
-      // if (nameA < nameB) {
-      //   return -1
-      // }
-      // if (nameA > nameB) {
-      //   return 1
-      // }
-      // return 0
+
       
